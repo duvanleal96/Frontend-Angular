@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Article } from '../models/article';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getArticles(): Observable<Article[]>{
-    console.log("Mensaje");
     const url = "http://localhost:3000/products";
     console.log(url);
-    return this.http.get<Article[]>(url)
+    return this.httpClient.get<Article[]>(url)
     .pipe(
       tap(_ => console.log('fetched articles')),
       catchError(this.handleError<Article[]>('getArticles', []))
