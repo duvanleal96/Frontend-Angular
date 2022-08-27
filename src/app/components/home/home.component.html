@@ -1,18 +1,20 @@
-<div class="container overflow-hidden text-center">
+
+<div class="container overflow-hidden margin">
   <div class="row">
-    <div class="col-lg-3 col-12" *ngFor="let article of articles ">
-      <div class="card mb-3" style="max-width: 480px; height: 550px">
+    <div class="col-lg-3 col-12" *ngFor="let article of articles | paginate: { itemsPerPage: 8, currentPage: page}">
+      <div class="card mb-3" style="max-width: 480px; height: 570px">
         <div class="card-body">
           <h5 class="card-title">{{article.name}}</h5>
-          <h6 class="card-text">{{article.price}} / {{article.quantity}}</h6>
-          <h6 class="card-text">{{article.description}}</h6>
+          <p class="card-text">{{article.price}}COP / {{article.quantity}}</p>
+          <p class="card-text">{{article.description}}</p>
         </div>
-        <div>
-        <img src="{{article.imageUrl}}" class="card-img-left" alt="..." style="width: 100%; height: 250px">
+        <div class="image text-center">
+        <img src="{{article.imageUrl}}" class="card" alt="..." style="width: 100%; height: 250px">
         <p></p>
-          <a class="btn btn-primary" (click)="buyProduct()">Buy product</a>
+          <a class="btn btn-outline-dark" (click)="buyProduct()">Buy product</a>
         </div>
       </div>
     </div>
   </div>
+  <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
 </div>

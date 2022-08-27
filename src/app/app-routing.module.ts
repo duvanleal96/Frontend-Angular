@@ -6,7 +6,7 @@ import { AboutComponent } from './components/about/about.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component:AboutComponent},
-  {path: '', redirectTo: '', pathMatch: 'full'}
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

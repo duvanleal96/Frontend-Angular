@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
   articles: Article[] = [];
+  public page!: number;
   constructor(private articleService: ArticleService) { 
     this.getArticles();
   }
