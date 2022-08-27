@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
 import { Article } from 'src/app/models/article';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -20,6 +21,16 @@ export class HomeComponent implements OnInit {
   getArticles(): void{
     this.articleService.getArticles()
     .subscribe(articleData=>{this.articles=articleData})
+  }
+
+  buyProduct(){
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Product saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
