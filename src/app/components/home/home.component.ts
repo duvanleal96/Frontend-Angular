@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     Swal.fire({
       position: 'top',
       icon: 'success',
-      title: 'Product saved',
+      title: 'Added product',
       showConfirmButton: false,
       timer: 1500
     })
