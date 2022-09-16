@@ -1,7 +1,7 @@
 
 <div class="container overflow-hidden margin">
   <div class="row">
-    <div class="col-lg-3 col-12" *ngFor="let article of articles | paginate: { itemsPerPage: 8, currentPage: page}">
+    <div class="col-lg-4 " *ngFor="let article of articles | paginate: { itemsPerPage: 6, currentPage: page}">
       <div class="card mb-3" style="max-width: 480px; height: 570px">
         <div class="card-body">
           <h5 class="card-title">{{article.name}}</h5>
